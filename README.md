@@ -1,11 +1,11 @@
 # NGINX examples (with docker)
 
-## Start the examples
+## Start examples
 
 Download nginx image to your local machine 
 
 ```bash
-make build
+make pull
 ```
 
 ### Simple server
@@ -33,7 +33,7 @@ make locationserver
 
 ### Proxy server
 
-Look at a **host A** and return the content throw **host B**
+Look at a **host A** and return the content through **host B**
 
 In this example, nginx starts two pots, 8080 and 8888 at the same time. Port 8080 serves the real content (html/images), port 8888 is a proxy that watch at 8080
 

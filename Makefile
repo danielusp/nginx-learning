@@ -1,4 +1,4 @@
-build:
+pull:
 	docker pull nginx:alpine
 
 run:
