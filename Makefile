@@ -47,3 +47,22 @@ loadbalancestop:
 	@docker stop NODE-APP-1 NODE-APP-2 NODE-APP-3 dev-nginx
 	
 	@echo "Load balance stopped"
+
+clusterserver:
+	@echo "Loading Node servers..."
+	@bash ${PWD}/examples/clusters/run.sh
+
+	@sleep 30
+
+	@echo "Loading NGINX cluster..."
+	@docker run --rm --network="host" --name dev-nginx -v ${PWD}/examples/clusters/configs/nginx.conf:/etc/nginx/nginx.conf:ro -d nginx:alpine
+
+	@docker ps
+
+	@echo "Cluster up and running"
+
+clusterserverstop:
+	@echo "Stopping cluster..."
+	@docker stop NODE-APP-1 NODE-APP-2 NODE-APP-3 NODE-APP-4 dev-nginx
+	
+	@echo "Cluster stopped"

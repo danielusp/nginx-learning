@@ -1,6 +1,9 @@
-# NGINX examples (with docker)
+# NginX examples (with docker)
 
+Examples of a simple server, server with routes, proxy, load balance and cluster
 ## Start examples
+
+*In order to run these examples you need just a Docker instalation*
 
 Download nginx image to your local machine 
 
@@ -66,6 +69,26 @@ To stop this example
 
 ```bash
 make loadbalancestop
+```
+
+### Cluster load balance
+
+For each path there is a cluster
+
+```bash
+make clusterserver
+```
+
+- At first we start four simple nodejs servers (http://localhost:1000/, http://localhost:2000/, http://localhost:3000/ and http://localhost:4000/)
+- After that we start the nginx.
+- http://localhost/ uses http://localhost:1000/ and http://localhost:2000/
+- http://localhost/app/ uses http://localhost:3000/ and http://localhost:4000/
+- All configs and sources at *examples/cluster/*
+
+To stop this example
+
+```bash
+make clusterserverstop
 ```
 
 ### Stop nginx
