@@ -47,6 +47,26 @@ make proxyserver
 - Access the image http://localhost:8080/images/dog.jpg through proxy http://localhost:8888/img/dog.jpg
 - All configs and sources at *examples/proxy/*
 
+### Proxy load balance
+
+Provides a load balance between servers by a proxy
+
+In this example nginx make a load balance between three node servers at ports 1000, 2000 and 3000
+
+```bash
+make loadbalance
+```
+
+- At first we start three simple nodejs servers (http://localhost:1000/, http://localhost:2000/ and http://localhost:3000/)
+- After that we start the nginx with a proxy balance.
+- Access http://localhost. Every time we reload the server, nginx proxy connect us to a different node server
+- All configs and sources at *examples/loadbalance/*
+
+To stop this example
+
+```bash
+make loadbalancestop
+```
 
 ### Stop nginx
 
@@ -70,7 +90,7 @@ Stop server
 nginx -s stop
 ```
 
-Reload server with new configs
+Restart server
 
 ```bash
 nginx -s reload
