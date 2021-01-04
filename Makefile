@@ -1,7 +1,3 @@
-pull:
-	docker pull nginx:alpine
-	docker pull node:current-alpine3.12
-
 stop:
 	@echo "Stopping..."
 	@docker stop dev-nginx

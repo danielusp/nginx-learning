@@ -5,12 +5,6 @@ Examples of a simple server, server with routes, proxy, load balance and cluster
 
 *In order to run these examples you need just a Docker instalation*
 
-Download nginx image to your local machine 
-
-```bash
-make pull
-```
-
 ### Simple server
 
 Run a simple server into PORT 8080
